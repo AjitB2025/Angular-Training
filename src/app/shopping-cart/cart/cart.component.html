@@ -1,4 +1,40 @@
-<div class="container mt-4">
+<h2>Your Shopping Cart</h2>
+
+<table *ngIf="cartItems.length; else emptyCart">
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Total</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of cartItems">
+      <td>{{ item.name }}</td>
+      <td>{{ item.price | currency }}</td>
+      <td>
+        <input type="number" [value]="item.quantity" min="1"
+               (change)="updateQuantity(item.id, $event)">
+      </td>
+      <td>{{ item.price * item.quantity | currency }}</td>
+      <td><button (click)="remove(item.id)">Remove</button></td>
+    </tr>
+  </tbody>
+</table>
+
+<ng-template #emptyCart>
+  <p>Your cart is empty.</p>
+</ng-template>
+
+<div *ngIf="cartItems.length">
+  <h3>Total: {{ total | currency }}</h3>
+  <button (click)="clear()">Clear Cart</button>
+  <a routerLink="/item">⬅ Continue Shopping</a>
+</div>
+
+<!-- <div class="container mt-4">
   <h2 class="mb-3 text-center">🛒 My Shopping Cart</h2>
   <div  class="card shadow-sm">
     <div class="card-body p-0">
@@ -67,4 +103,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->

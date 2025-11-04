@@ -17,7 +17,7 @@ export class Credential  {
 export class SignInComponent {
 
   isValidUser:boolean=false;
-  user: Credential=new Credential("ravi.tambade@transflower.in","seed");
+  user: Credential=new Credential("ajit.bhadale@transflower.in","seed");
  
   //Constructor 
   constructor(private svc:AuthService) {    }  //DI

@@ -1,16 +1,17 @@
 <h2>Welcome to the {{title}}!</h2>
 <hr/>
 
-<!--<app-list></app-list>-->
+<!-- <app-list></app-list> -->
 
-<!--<app-sign-in></app-sign-in>-->
- <app-register></app-register>
+<!-- <app-sign-in></app-sign-in> -->
 
+ <!-- <app-register></app-register> -->
 
-
-
-
-<!-- <app-insert></app-insert>
-
-
-<app-cart></app-cart> -->
+<!-- <app-insert></app-insert>-->
+<nav>
+  <a routerLink="/">Products</a> |
+  <a routerLink="/cart">Cart</a>
+</nav>
+<hr>
+<router-outlet></router-outlet>
+<app-cart></app-cart> 

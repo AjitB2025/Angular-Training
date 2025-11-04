@@ -13,5 +13,5 @@ import { ShoppingCartModule } from './shopping-cart/shopping-cart.module';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'Transflower Store';
+  title = 'E-Store';
 }
