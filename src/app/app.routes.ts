@@ -1,16 +1,27 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 import { ItemComponent } from './shopping-cart/item/item.component';
 import { CartComponent } from './shopping-cart/cart/cart.component';
 
-export const routes: Routes = [
-    { path: '', component: ItemComponent },
-    { path: 'cart', component: CartComponent }
+export const childRoutes:Routes=[
+
+    // { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+    // { path: 'item', component: ItemComponent },
+    // { path: 'cart', component: CartComponent}
 ];
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
+export const routes: Routes = [
+    //  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+    { path: '', component: ItemComponent },
+    { path: 'cart', component: CartComponent },
+    { path: 'item', component: ItemComponent}
+    // { path:'item', component: ItemComponent,children:childRoutes}
+];
 
-export class AppRoutingModule {}
+
+// @NgModule({
+//   imports: [RouterModule.forRoot(routes)],
+//   exports: [RouterModule]
+// })
+
+// export class AppRoutingModule {}
