@@ -1,9 +1,11 @@
+<h2>Register Form</h2>
+<div class="register-container">
 <form #customerForm="ngForm"
       (ngSubmit)="onSubmit(customerForm.value)">
             <table>
             <tr>
                 <td><label>FirstName:</label></td>
-                <input type="text" name="firstName" 
+                <input type="text" name="firstName"
                        [(ngModel)]="model.firstName"
                         required minlength="3" maxlength="8"
                         #firstName="ngModel">
@@ -11,15 +13,15 @@
                         FirstName is required (minimum 3 characters and max 8).
                 </small>
             </tr>
-                
+
             <tr>
                 <td><label>LastName:</label></td>
-                <td><input type="text" name="lastName" 
-                    [(ngModel)]="model.lastName"></td>
+                <td><input type="text" name="lastName"
+                    [(ngModel)]="lName"></td>
             </tr>
             <tr><td>
                   <label>Email:</label></td>
-                  <input type="email" name="email" 
+                  <input type="email" name="email"
                          [(ngModel)]="model.email"
                            required pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$"
                            #email="ngModel">
@@ -30,38 +32,38 @@
             </tr>
             <tr>
                 <td> <label>BirthDate:</label></td>
-                <td><input type="date" name="birthDate"  required 
-                           [(ngModel)]="model.birthDate"></td>
+                <td><input type="date" name="birthDate"  required
+                           [(ngModel)]="birthDate"></td>
             </tr>
             <tr>
                 <td> <label>Age:</label></td>
-                <td><input type="number" name="age"  required 
-                           [(ngModel)]="model.age"></td>
+                <td><input type="number" name="age"  required
+                           [(ngModel)]="age"></td>
             </tr>
             <tr>
                 <td><label>PhoneNo:</label></td>
-                <td><input type="text" name="phoneNo"  required [(ngModel)]="model.phoneNo"></td>
-            </tr> 
+                <td><input type="text" name="phoneNo"  required [(ngModel)]="phoneNumber"></td>
+            </tr>
              <tr>
                 <td><label>Location:</label></td>
-                <select id="location" required [(ngModel)]="model.location"
+                <select id="location" required [(ngModel)]="locate"
                         name="location" #location ="ngModel" >
                    <option *ngFor="let loc of locations" [value]="loc">{{loc}}</option>
                 </select>
                 <div [hidden]="location.valid || location.pristine">
                         Location is Required
                 </div>
-            </tr> 
-            <tr>
+            </tr>
+            <!-- <tr>
                 <td><label>Membership:</label></td>
                 <div *ngFor="let memberShip of memberShips">
                     <label>
-                        <input type="radio" name="memberShip"  required [(ngModel)]="model.memberShip" 
+                        <input type="radio" name="memberShip"  required [(ngModel)]="model.memberShip"
                                [value]="memberShip.value"> {{memberShip.display}}
                     </label>
                 </div>
-            </tr>
-            <tr>
+            </tr> -->
+            <!-- <tr>
                 <td><label>Status</label></td>
                 <input type="checkbox" name="IsRegistered" [(ngModel)]="model.isRegistered"
                        value='false'>IsRegistered<br>
@@ -72,10 +74,11 @@
                     <option *ngFor="let socialData of social" [value]="socialData.value">
                         {{socialData.display}}
                 </select>
-            </tr>    
+            </tr> -->
             <tr>
-              <td><button type="submit" [disabled] = "!customerForm.form.valid"> Submit</button> 
+              <td><button type="submit" [disabled] = "!customerForm.form.valid"> Submit</button>
               </td>
             </tr>
       </table>
     </form>
+    </div>

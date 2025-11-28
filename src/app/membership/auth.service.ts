@@ -1,26 +1,28 @@
 import { Injectable } from '@angular/core';
 
+
+
+
 @Injectable({providedIn: 'root'})
 export class AuthService {
-  status:boolean=false;
 
-  validate(user: string, password: string): boolean {
-
-    //Access rest API /DB to validate user credentials
-    
-    if (user === 'ravi.tambade@transflower.in' && password === 'seed') {
-      this.status=true;
-      console.log("checked True");
+  constructor() { }
+   login(user: string, password: string): boolean {
+      if (user === 'ravi' && password === 'seed') {
       localStorage.setItem('username', user);
+      let status = localStorage.getItem("loggedInStatus");
+      if(status=="false"){
+        localStorage.setItem("loggedInStatus","true");
+      }
       return true;
     }
-    else{
-      console.log(" service Invalid User");
-      return false;
-    }   
- }
+    return false;
+  }
 
- logout(): any {   localStorage.removeItem('username'); }
- getUser(): any {   return localStorage.getItem('username'); }
- isLoggedIn(): boolean {    return this.getUser() !== null;  }
+  logout(): any { localStorage.removeItem('username'); }
+  getUser(): any { 
+    return localStorage.getItem('username'); 
+  }
+
+  isLoggedIn(): boolean { return this.getUser() !== null;}
 }

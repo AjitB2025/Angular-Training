@@ -19,9 +19,14 @@ export class ListComponent implements OnInit {
   ngOnInit() {
     this.loadProducts();
   }
-  
+
   loadProducts() {
-     this.products=this.productService.getAll();
+    this.productService.getAllFromAPI().subscribe(
+      (res)=>{
+        console.log(res);
+        this.products=res;
+      }
+    );
   };
 
 }
